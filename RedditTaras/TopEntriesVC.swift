@@ -10,13 +10,58 @@ import UIKit
 
 class TopEntriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var tableView: UITableView!
+    
+    typealias DownloadComplete = () -> ()
+    
+    let urlStr = "https://www.reddit.com/top.json?limit=50"
+    
+    var entries = [Entry]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableViewAutomaticDimension
+        downloadEntries() {
+            self.tableView.reloadData()
+        }
+        
         
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    
+    func downloadEntries(completed: @escaping DownloadComplete) {
+        let session = URLSession.shared
+        
+        if let url = URL(string: urlStr) {
+            let task = session.dataTask(with: url) { (data, response, error) -> Void in
+                
+                if error != nil {
+                    print(error!)
+                } else {
+                    if let data = data {
+                        print(data)
+                        
+                        if let jsonObj = try? JSONSerialization.jsonObject(with: data, options:[]) as? Dictionary<String, AnyObject> {
+                            
+                            if let data = jsonObj!["data"] as? Dictionary<String, AnyObject> {
+                                
+                                if let childrens = data["children"] as? [Dictionary<String, AnyObject>] {
+                                    for children in childrens {
+                                        if let data = children["data"] as? Dictionary<String, AnyObject> {
+                                            let entry = Entry.init(entryInfo: data)
+                                            self.entries.append(entry)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+             completed()
+            }
+            task.resume()
+        }
     }
 
     override func didReceiveMemoryWarning() {
