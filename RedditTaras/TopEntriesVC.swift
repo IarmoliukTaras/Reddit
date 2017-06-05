@@ -24,9 +24,6 @@ class TopEntriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         downloadEntries() {
             self.tableView.reloadData()
         }
-        
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     
@@ -58,7 +55,9 @@ class TopEntriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
                         }
                     }
                 }
-             completed()
+                DispatchQueue.main.async(execute: {
+                    completed()
+                })
             }
             task.resume()
         }
@@ -76,11 +75,16 @@ class TopEntriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return entries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath)
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath) as?EntryViewCell {
+        cell.configCell(entry: entries[indexPath.row])
+        return cell
+        } else {
+            return EntryViewCell()
+        }
     }
 }
 

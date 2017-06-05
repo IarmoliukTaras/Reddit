@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "TopEntriesVC.(viewDidLoad() -&gt; ()).(closure #1):TopEntriesVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TopEntriesVC.downloadEntries() -&gt; ():TopEntriesVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TopEntriesVC.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:TopEntriesVC.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "tableView.dequeueReusableCell(withIdentifier: &quot;entryCell&quot;, for: indexPath) as?EntryViewCell">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TopEntriesVC.(downloadEntries() -&gt; ()).(closure #1):TopEntriesVC.swift">
+      </ContextState>
+      <ContextState
+         contextName = "EntryViewCell.(configCell(entry : Entry) -&gt; ()).(closure #1):EntryViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "entry">
+            </PersistentString>
+            <PersistentString
+               value = "entry.thumbnail">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
