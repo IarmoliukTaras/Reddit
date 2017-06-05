@@ -26,7 +26,20 @@ class EntryViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openImageUrl(tapGestureRecognizer:)))
+        entryImage.isUserInteractionEnabled = true
+        entryImage.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    func openImageUrl(tapGestureRecognizer: UITapGestureRecognizer) {
+        if let url = URL(string: imageUrlStr) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
     }
     
     func configCell(entry: Entry) {
@@ -39,7 +52,7 @@ class EntryViewCell: UITableViewCell {
     }
 
     
-    func getImage(urlStr: String, imageView: UIImageView) {
+    private func getImage(urlStr: String, imageView: UIImageView) {
         guard let url = URL(string: urlStr) else {
             return
         }
