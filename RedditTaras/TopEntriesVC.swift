@@ -29,20 +29,14 @@ class TopEntriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     func downloadEntries(completed: @escaping DownloadComplete) {
         let session = URLSession.shared
-        
         if let url = URL(string: urlStr) {
             let task = session.dataTask(with: url) { (data, response, error) -> Void in
-                
                 if error != nil {
                     print(error!)
                 } else {
                     if let data = data {
-                        print(data)
-                        
                         if let jsonObj = try? JSONSerialization.jsonObject(with: data, options:[]) as? Dictionary<String, AnyObject> {
-                            
                             if let data = jsonObj!["data"] as? Dictionary<String, AnyObject> {
-                                
                                 if let childrens = data["children"] as? [Dictionary<String, AnyObject>] {
                                     for children in childrens {
                                         if let data = children["data"] as? Dictionary<String, AnyObject> {
@@ -63,13 +57,6 @@ class TopEntriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-        // Dispose of any resources that can be recreated.
-    }
-
-
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -80,8 +67,8 @@ class TopEntriesVC: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath) as?EntryViewCell {
-        cell.configCell(entry: entries[indexPath.row])
-        return cell
+            cell.configCell(entry: entries[indexPath.row])
+            return cell
         } else {
             return EntryViewCell()
         }

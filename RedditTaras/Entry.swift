@@ -14,7 +14,7 @@ class Entry {
     private var _author: String!
     private var _numberOfComments: Int!
     private var _thumbnail: String!
-    private var _date: Double!
+    private var _date: Int!
     
     var title: String {
         if _title == nil {
@@ -44,7 +44,7 @@ class Entry {
         return _thumbnail
     }
     
-    var date: Double {
+    var date: Int {
         if _date == nil {
             _date = 0
         }
@@ -52,25 +52,22 @@ class Entry {
     }
     
     init(entryInfo: Dictionary<String, AnyObject>) {
-        
         if let author = entryInfo["author"] as? String {
             _author = author
         }
-        
         if let thumbnail = entryInfo["thumbnail"] as? String {
             _thumbnail = thumbnail
         }
-        
         if let title = entryInfo["title"] as? String {
             _title = title
         }
-        
         if let numberOfComments = entryInfo["num_comments"] as? Int {
             _numberOfComments = numberOfComments
         }
-        
-        if let date = entryInfo["created_utc"] as? Double {
-            _date = date
+        if let date = entryInfo["created_utc"] as? Int {
+            let dateSince1970 = Date(timeIntervalSince1970: TimeInterval(date))
+            let seconds = Int(Date().timeIntervalSince(dateSince1970))
+            _date = seconds / (60 * 60)
         }
     }
     

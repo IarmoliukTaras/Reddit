@@ -14,6 +14,7 @@
 		9D7E18001EE18571008DF56F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D7E17FE1EE18571008DF56F /* LaunchScreen.storyboard */; };
 		9D7E180F1EE19DA9008DF56F /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7E180E1EE19DA9008DF56F /* Entry.swift */; };
 		9D7E18121EE1A97A008DF56F /* EntryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7E18111EE1A97A008DF56F /* EntryViewCell.swift */; };
+		9D7E18161EE55693008DF56F /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7E18151EE55693008DF56F /* FancyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		9D7E18011EE18571008DF56F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D7E180E1EE19DA9008DF56F /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
 		9D7E18111EE1A97A008DF56F /* EntryViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryViewCell.swift; sourceTree = "<group>"; };
+		9D7E18151EE55693008DF56F /* FancyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				9D7E18111EE1A97A008DF56F /* EntryViewCell.swift */,
+				9D7E18151EE55693008DF56F /* FancyView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D7E180F1EE19DA9008DF56F /* Entry.swift in Sources */,
+				9D7E18161EE55693008DF56F /* FancyView.swift in Sources */,
 				9D7E17F81EE18571008DF56F /* TopEntriesVC.swift in Sources */,
 				9D7E17F61EE18571008DF56F /* AppDelegate.swift in Sources */,
 				9D7E18121EE1A97A008DF56F /* EntryViewCell.swift in Sources */,

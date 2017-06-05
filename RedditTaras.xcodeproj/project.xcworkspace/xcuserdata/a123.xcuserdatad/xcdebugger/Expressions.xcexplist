@@ -9,6 +9,14 @@
          contextName = "TopEntriesVC.downloadEntries() -&gt; ():TopEntriesVC.swift">
       </ContextState>
       <ContextState
+         contextName = "Entry.init(entryInfo : [String : AnyObject]) -&gt; Entry:Entry.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "seconds/ (60*60)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TopEntriesVC.tableView(UITableView, cellForRowAt : IndexPath) -&gt; UITableViewCell:TopEntriesVC.swift">
          <PersistentStrings>
             <PersistentString

@@ -26,7 +26,6 @@ class EntryViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openImageUrl(tapGestureRecognizer:)))
         entryImage.isUserInteractionEnabled = true
         entryImage.addGestureRecognizer(tapGestureRecognizer)
